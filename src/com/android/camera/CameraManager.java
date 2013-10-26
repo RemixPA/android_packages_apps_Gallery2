@@ -145,9 +145,6 @@ public class CameraManager {
          */
         @Override
         public void handleMessage(final Message msg) {
-            if (mCamera == null) {
-                return;
-            }
             try {
                 switch (msg.what) {
                     case RELEASE:

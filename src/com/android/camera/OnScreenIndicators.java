@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -141,7 +140,7 @@ public class OnScreenIndicators {
     /**
      * Set the flash indicator to the given value.
      *
-     * @param value One of Parameters.FLASH_MODE_OFF, Parameters.FLASH_MODE_RED_EYE,
+     * @param value One of Parameters.FLASH_MODE_OFF,
      *            Parameters.FLASH_MODE_AUTO, Parameters.FLASH_MODE_ON.
      */
     public void updateFlashOnScreenIndicator(String value) {
@@ -156,8 +155,6 @@ public class OnScreenIndicators {
             } else if (Parameters.FLASH_MODE_ON.equals(value)
                     || Parameters.FLASH_MODE_TORCH.equals(value)) {
                 mFlashIndicator.setImageResource(R.drawable.ic_indicator_flash_on);
-            } else if (Parameters.FLASH_MODE_RED_EYE.equals(value)) {
-                mFlashIndicator.setImageResource(R.drawable.ic_indicator_flash_redeye);
             } else {
                 mFlashIndicator.setImageResource(R.drawable.ic_indicator_flash_off);
             }
@@ -179,22 +176,6 @@ public class OnScreenIndicators {
             mSceneIndicator.setImageResource(R.drawable.ic_indicator_sce_hdr);
         } else {
             mSceneIndicator.setImageResource(R.drawable.ic_indicator_sce_on);
-        }
-    }
-
-    /**
-     * Reuse the scene indicator for video HDR mode.
-     *
-     * @param value of video HDR mode
-     */
-    public void updateVideoHDROnScreenIndicator(String value) {
-        if (mSceneIndicator == null) {
-            return;
-        }
-        if (value != null && "on".equals(value)) {
-            mSceneIndicator.setImageResource(R.drawable.ic_indicator_sce_hdr);
-        } else {
-            mSceneIndicator.setImageResource(R.drawable.ic_indicator_sce_off);
         }
     }
 
